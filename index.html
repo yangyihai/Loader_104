@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loder——104一日游骰子</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 用户注册界面 -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <h2>欢迎来到Loser游戏</h2>
+                <p>请输入您的真实姓名</p>
+                <input type="text" id="nameInput" placeholder="请输入您的真实姓名" maxlength="20">
+                <button id="startGame">开始</button>
+                <div id="loginError" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- 游戏主界面 -->
+        <div id="gameArea" class="game-area hidden">
+            <div class="game-content">
+                <div class="left-section">
+                    <div class="user-info">
+                        <h2>欢迎, <span id="currentUser"></span>!</h2>
+                        <p id="gameStatus">准备投掷骰子</p>
+                    </div>
+
+                    <div class="dice-container">
+                        <div class="dice" id="dice">
+                            <div class="face front">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="face back">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="face right">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="face left">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="face top">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <div class="face bottom">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="rollButton" class="roll-button">
+                            <span class="lever">🎰</span>
+                            投掷骰子
+                        </button>
+                    </div>
+
+                    <div id="result" class="result hidden">
+                        <h3>投掷结果：<span id="diceResult"></span></h3>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="records-panel">
+                        <h3>投掷记录</h3>
+                        <div id="recordsList" class="records-list">
+                            <!-- 记录将动态添加到这里 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 已投掷提示界面 -->
+        <div id="alreadyRolledModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>您已经投掷过了！</h2>
+                <p>每位用户只能投掷一次骰子</p>
+                <p>您的投掷结果是：<span id="previousResult"></span></p>
+                <button id="viewRecords">查看所有记录</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
