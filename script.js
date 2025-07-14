@@ -141,8 +141,27 @@ class DiceGame {
     }
 
     showRecords() {
+        // 当显示记录时，需要根据用户是否已投掷来设置界面状态
         this.alreadyRolledModal.classList.add('hidden');
         this.gameArea.classList.remove('hidden');
+        
+        // 检查当前用户是否已经投掷过
+        const existingRecord = this.checkExistingUser(null, this.userIP);
+        if (existingRecord) {
+            // 如果已投掷过，设置为已投掷状态
+            this.currentUser = existingRecord.name;
+            this.currentUserSpan.textContent = this.currentUser;
+            this.hasRolled = true;
+            this.rollButton.disabled = true;
+            this.rollButton.textContent = '您已投掷过';
+            this.gameStatus.textContent = `您已投掷完成，结果是：${existingRecord.result}`;
+            
+            // 显示之前的投掷结果
+            this.showDiceResult(existingRecord.result);
+            this.diceResult.textContent = existingRecord.result;
+            this.result.classList.remove('hidden');
+        }
+        
         this.displayRecords();
     }
 
