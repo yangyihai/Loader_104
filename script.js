@@ -4,11 +4,14 @@ class DiceGame {
         this.userIP = null;
         this.gameRecords = this.loadRecords();
         this.hasRolled = false;
+        this.lastRecordCount = 0;
+        this.realtimeInterval = null;
         
         this.initializeElements();
         this.bindEvents();
         this.getUserIP();
         this.displayRecords();
+        this.startRealtimeUpdates();
     }
 
     initializeElements() {
